@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/dominant-strategies/quais.js/releases
+scope: Quais SDK (quais on npm) release history — the primary developer-facing client library.
+scheme: semver-prerelease
+current_version: 1.0.0-alpha.54
+entries:
+- version: 1.0.0-alpha.54
+  date: '2026-04-13'
+  highlights: Qi wallet reliability improvement.
+- version: 1.0.0-alpha.51
+  date: '2025-08-04'
+  highlights: Maintenance release.
+- version: 1.0.0-alpha.50
+  date: '2025-07-17'
+  highlights: Maintenance release.
+- version: 1.0.0-alpha.49
+  date: '2025-05-14'
+  highlights: Maintenance release.
+- version: 1.0.0-alpha.48
+  date: '2025-05-01'
+  highlights: Maintenance release.
+- version: 1.0.0-alpha.46
+  date: '2025-04-24'
+  highlights: Maintenance release.
+notes:
+- Protocol/node changes are tracked separately in the go-quai repository (https://github.com/dominant-strategies/go-quai/releases).

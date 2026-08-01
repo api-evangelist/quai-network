@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qu.ai/guides/client/node + https://github.com/dominant-strategies/go-quai
+cli:
+  name: go-quai
+  description: >-
+    The official Go implementation of the Quai Network node, run as a command-line
+    client to sync the chain, serve the JSON-RPC/GraphQL endpoints, and mine.
+  repository: https://github.com/dominant-strategies/go-quai
+  language: go
+  install:
+  - method: source
+    command: git clone https://github.com/dominant-strategies/go-quai && cd go-quai && make go-quai
+  - method: docker
+    command: docker (see https://docs.qu.ai/guides/client/containerized-node)
+  command_groups:
+  - group: node
+    description: Run and sync a Quai node across the hierarchical (Prime/Region/Zone) structure.
+    docs: https://docs.qu.ai/guides/client/node
+  - group: mining
+    description: Solo mining and merged-mining configuration.
+    docs: https://docs.qu.ai/guides/client/solo-mining
+  - group: monitoring
+    description: Node monitoring tools and metrics.
+    docs: https://docs.qu.ai/guides/client/node-monitoring
+  - group: local
+    description: Spin up a self-contained local Quai network for development.
+    docs: https://docs.qu.ai/guides/client/local-node

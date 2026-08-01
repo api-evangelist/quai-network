@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qu.ai/build/networks
+versioning:
+  scheme: chain-id + zone-path
+  detail: >-
+    Network identity is carried by chainId and the zone path segment. The
+    canonical active zone is Cyprus-1; other zones (Cyprus 2/3, Paxos 1/2/3,
+    Hydra 1/2/3) are specified but not currently running.
+  docs: https://docs.qu.ai/build/networks
+networks:
+- name: Quai Mainnet
+  chain_id: 9
+  rpc_https: https://rpc.quai.network/cyprus1
+  rpc_wss: wss://rpc.quai.network/cyprus1
+  graphql: https://graph.quai.network
+  explorer: https://quaiscan.io
+  launched: '2025-02-04'
+- name: Orchard Testnet
+  chain_id: 15000
+  rpc_https: https://orchard.rpc.quai.network/cyprus1
+  rpc_wss: wss://orchard.rpc.quai.network/cyprus1
+  graphql: https://orchard.graph.quai.network
+  explorer: https://orchard.quaiscan.io
+  faucet: https://orchard.faucet.quai.network
+- name: Local Network
+  chain_id: 1337
+  rpc_https: http://localhost:9200
+  rpc_wss: ws://localhost:8200
+  detail: Multiple shard endpoints on ports 9200-9242 (HTTP) and 8200-8242 (WSS).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: No published API deprecation policy or RFC 8594 Sunset/Deprecation header support found.
+sla:
+  url: null
+status_page: null
+notes:
+- No dedicated status page discovered as of the probe date.
+- Live chainId verified: mainnet quai_chainId -> 0x9, Orchard -> 0x3a98 (15000).

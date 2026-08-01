@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.npmjs.com/package/quais + https://github.com/dominant-strategies
+packages:
+- language: javascript
+  registry: npm
+  name: quais
+  description: A complete and compact Quai library, for dapps, wallets and any other tools (a fork of Ethers v6 adapted for Quai).
+  url: https://www.npmjs.com/package/quais
+  repository: https://github.com/dominant-strategies/quais.js
+  latest: 1.0.0-alpha.54
+  install: npm install quais
+  official: true
+- language: go
+  registry: github
+  name: go-quai
+  description: Official Go implementation of the Quai Network node (also the go-quai node CLI / miner).
+  url: https://github.com/dominant-strategies/go-quai
+  install: git clone https://github.com/dominant-strategies/go-quai
+  official: true
+notes:
+- The PyPI package `quais` does not exist; PyPI `quai` is an unrelated project (Quarb REPL) — no first-party Python SDK published.
+- The Quais SDK ships a full auto-generated API reference at https://docs.qu.ai/sdk/introduction (250+ reference pages).

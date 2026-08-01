@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qu.ai/build/playground/overview + https://docs.qu.ai/build/introduction
+summary:
+  types: [none]
+  detail: >-
+    The Quai Network JSON-RPC and GraphQL endpoints are public and unauthenticated
+    (no API key or token). This is standard for a public blockchain node RPC.
+    State-changing operations are not authorized by an API credential but by
+    cryptographic transaction signatures: clients sign transactions with an
+    account private key (Quais SDK Wallet / QuaiHDWallet / QiHDWallet) and submit
+    the signed, Protobuf-encoded transaction via quai_sendRawTransaction.
+schemes:
+- name: public-rpc
+  type: none
+  detail: No credential required for read methods or for submitting pre-signed transactions.
+- name: transaction-signature
+  type: signature
+  detail: secp256k1 transaction signatures (via the Quais SDK) authorize on-chain state changes; Qi UTXO transactions use the Qi ledger signing model.
+notes:
+- Operators exposing a private/authenticated node may front the RPC with their own gateway auth; that is deployment-specific and not part of the public API contract.

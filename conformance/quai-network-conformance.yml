@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: derived
+source: https://docs.qu.ai/build/introduction + https://docs.qu.ai/build/playground/overview
+standards:
+- id: json-rpc-2.0
+  conforms: true
+  evidence: API is JSON-RPC 2.0 over HTTPS/WSS; verified live (quai_chainId returns {"jsonrpc":"2.0","id":1,"result":"0x9"}).
+- id: ethereum-json-rpc
+  conforms: partial
+  evidence: EVM-compatible node exposing the Ethereum JSON-RPC method set under the quai_ namespace (in place of eth_); Ethereum apps migrate via ethers/viem/web3.js.
+- id: evm
+  conforms: true
+  evidence: EVM-compatible smart contracts; Solidity supported up to 0.8.20 with Quai-specific opcode additions.
+- id: eip-1559-fee-market
+  conforms: true
+  evidence: Gas & fee methods include feeHistory and estimateGas (quai_feeHistory / quai_estimateGas).
+- id: protobuf-transactions
+  conforms: true
+  evidence: Transactions are Protobuf-encoded (migrated from RLP) for send-transaction methods.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: JSON-RPC 2.0 error object is used, not application/problem+json.
+- id: oauth2
+  conforms: false
+  evidence: Public RPC endpoints; no OAuth. Write auth is via transaction signatures.

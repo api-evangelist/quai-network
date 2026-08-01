@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: derived
+source: JSON-RPC 2.0 specification error object + EVM/Ethereum JSON-RPC (EIP-1474) provider error conventions
+format: json-rpc-2.0
+envelope:
+  field: error
+  shape: '{ "jsonrpc": "2.0", "id": <id>, "error": { "code": <int>, "message": <string>, "data": <optional> } }'
+note: >-
+  Quai does not publish a dedicated RFC 9457 problem+json error reference; as an
+  Ethereum-compatible JSON-RPC node the standard JSON-RPC 2.0 and EIP-1474 error
+  codes apply. Codes below are derived from those standards, not from a Quai-specific
+  published catalog.
+problems:
+- code: -32700
+  title: Parse error
+  meaning: Invalid JSON was received by the server.
+  category: json-rpc
+- code: -32600
+  title: Invalid request
+  meaning: The JSON sent is not a valid Request object.
+  category: json-rpc
+- code: -32601
+  title: Method not found
+  meaning: The method does not exist / is not available (e.g. a quai_ method not enabled on the node).
+  category: json-rpc
+- code: -32602
+  title: Invalid params
+  meaning: Invalid method parameter(s).
+  category: json-rpc
+- code: -32603
+  title: Internal error
+  meaning: Internal JSON-RPC error.
+  category: json-rpc
+- code: -32000
+  title: Server error / execution reverted
+  meaning: Generic node/execution error (reserved -32000..-32099); commonly returned for reverted eth_call/quai_call or transaction validation failures.
+  category: evm
+- code: -32001
+  title: Resource not found
+  meaning: Requested resource (block, transaction) was not found.
+  category: evm

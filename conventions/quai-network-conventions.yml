@@ -1,0 +1,51 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qu.ai/build/playground/overview + https://docs.qu.ai/build/introduction
+summary: >-
+  Cross-cutting conventions for the Quai Network JSON-RPC API. Quai is
+  Ethereum-compatible with a `quai_` method namespace (in place of `eth_`),
+  hierarchical address sharding, and Protobuf-encoded transactions.
+protocol:
+  style: json-rpc-2.0
+  namespace: quai_
+  transports: [https, wss]
+  zone_routing: >-
+    Endpoints are per-zone; the canonical active zone is Cyprus-1
+    (rpc.quai.network/cyprus1). Addresses are sharded by byte prefix, so the
+    target zone is determined by the address.
+encoding:
+  quantities: Hex-encoded integers, 0x-prefixed, most compact form (e.g. 21000 -> "0x5208").
+  unformatted_data: Hex-encoded bytes, 0x-prefixed, two hex digits per byte, even number of digits.
+  transactions: >-
+    Transactions are Protobuf-encoded (migrated from RLP). Flow: compose unsigned
+    tx JSON -> encode to Protobuf -> sign -> re-encode with signature -> submit
+    via quai_sendRawTransaction.
+default_block_parameter:
+  values: [earliest, latest, pending, "<block number hex>"]
+  default: latest
+  applies_to: [getBalance, getProof, getCode, getStorageAt, call, estimateGas, getTransactionCount]
+authentication:
+  model: none
+  detail: Public RPC endpoints require no API key; write operations are authorized by transaction signatures. See authentication/quai-network-authentication.yml.
+idempotency:
+  supported: false
+  detail: >-
+    No idempotency-key contract. JSON-RPC reads are naturally idempotent;
+    transaction submission is idempotent by transaction hash/nonce at the
+    protocol level (a re-submitted signed tx with the same nonce does not
+    double-execute), but there is no request-level Idempotency-Key header.
+pagination:
+  style: range-parameters
+  detail: >-
+    Range-based methods (e.g. quai_getOutpointsByAddressAndRange) take explicit
+    from/to bounds rather than an opaque cursor.
+versioning:
+  scheme: chain-id + zone path
+  detail: Network identity is carried by chainId (9 mainnet / 15000 Orchard) and the zone path segment (/cyprus1). See lifecycle/quai-network-lifecycle.yml.
+errors:
+  envelope: json-rpc-2.0 error object ({code, message, data})
+  reference: errors/quai-network-problem-types.yml
+related:
+  authentication: authentication/quai-network-authentication.yml
+  errors: errors/quai-network-problem-types.yml
+  lifecycle: lifecycle/quai-network-lifecycle.yml
