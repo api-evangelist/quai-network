@@ -11,6 +11,17 @@ description: >-
   Quais SDK (a fork of Ethers v6) for JavaScript/TypeScript dApps and wallets,
   and the go-quai node/CLI for running nodes and miners. The canonical active
   zone is Cyprus-1 (chainId 9 on mainnet, 15000 on the Orchard testnet).
+deliveryModel:
+  model: library
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Library · distributed through package registries, no callable service
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
